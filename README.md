@@ -1,3 +1,3 @@
 ## Web Portofolio
 
- - Demo : https://github.com/AldyyRasya.github.io
+ - Demo : https://AldyyRasya.github.io
