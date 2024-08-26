@@ -1,0 +1,261 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #333;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between; /* Menempatkan elemen di sisi kiri dan kanan */
+    align-items: center;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar .left-section {
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Jarak dari tepi kiri */
+}
+
+#username {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar .right-section {
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Jarak dari tepi kanan */
+}
+
+#time-display {
+    font-size: 14px;
+    color: #ccc; /* Warna teks untuk tanggal dan waktu */
+    margin-right: 10px; /* Jarak antara tanggal dan tombol logout */
+}
+
+#logout-button {
+    background-color: #d9534f; /* Warna merah */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#logout-button:hover {
+    background-color: #c9302c; /* Warna merah gelap saat hover */
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    margin-top: 60px; /* Memberi jarak dari navbar */
+}
+
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.container p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+footer {
+    position: fixed;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 15px;
+        flex-direction: row; /* Menyusun elemen navbar secara horizontal pada perangkat kecil */
+        justify-content: space-between; /* Menyusun elemen ke kiri dan kanan */
+        align-items: center; /* Menyusun elemen ke tengah */
+    }
+
+    .navbar .left-section {
+        order: 1; /* Menyusun username ke kiri */
+        margin-left: 0; /* Menghilangkan margin kiri pada perangkat kecil */
+        margin-right: auto; /* Mengarahkan username ke kiri dengan margin otomatis di kanan */
+    }
+
+    .navbar .right-section {
+        order: 2; /* Menyusun tanggal dan tombol logout ke kanan */
+        margin-left: auto; /* Mengarahkan elemen ke kanan dengan margin otomatis di kiri */
+    }
+
+    #username {
+        font-size: 16px;
+    }
+
+    #time-display {
+        font-size: 12px;
+        margin-right: 5px; /* Mengurangi jarak pada perangkat kecil */
+    }
+
+    #logout-button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .container {
+        padding: 15px;
+        margin-top: 70px; /* Menyesuaikan jarak dari navbar */
+    }
+
+    .container h1 {
+        font-size: 20px;
+    }
+
+    .container p {
+        font-size: 14px;
+    }
+}
+
+/*FEEDBACK*/
+/* Style for the feedback button */
+.feedback-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.feedback-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Style for the feedback popup */
+.feedback-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.feedback-popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #d9534f;
+}
+
+.feedback-popup h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form styling */
+.feedback-popup form {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-popup form label {
+    margin: 10px 0 5px;
+    font-weight: bold;
+    text-align: left; /* Label berada di kiri */
+}
+
+.feedback-popup form .required {
+    color: #d9534f; /* Warna merah untuk tanda wajib */
+}
+
+.feedback-popup form input, 
+.feedback-popup form textarea {
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%; /* Membuat input dan textarea menyesuaikan lebar kontainer */
+}
+
+.feedback-popup form textarea {
+    resize: vertical;
+}
+
+.feedback-popup form button {
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.feedback-popup form button:hover {
+    background-color: #0056b3;
+}
+
+.feedback-message {
+    margin-top: 15px;
+    color: #28a745;
+    font-weight: bold;
+    text-align: left; /* Teks feedback berada di kiri */
+}
