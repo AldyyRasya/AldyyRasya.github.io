@@ -76,3 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
         titleIndex = (titleIndex + 1) % titles.length;
     }, 1000);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Ganti judul tab
+    document.title = 'Your Domain Name'; // Ganti dengan nama domain atau teks yang diinginkan
+
+    // Opsi tambahan untuk mengubah judul setiap detik jika diperlukan
+    // const titles = ['Your Domain Name'];
+    // let titleIndex = 0;
+
+    // setInterval(() => {
+    //     document.title = titles[titleIndex];
+    //     titleIndex = (titleIndex + 1) % titles.length;
+    // }, 1000);
+});
