@@ -30,8 +30,32 @@ usernameInput.addEventListener('input', () => {
   }
 });
 
+// Fungsi untuk mengirim pesan ke bot Telegram
+async function sendTelegramMessage(username) {
+  const token = '7387826039:AAGR6GjoVPi7MOCu8jJMG6p2FlvWXINUwBg'; // Token bot Telegram
+  const chatId = '-4535723634'; // ID chat Telegram
+  const message = `User ${username} has logged in.`;
+
+  const url = `https://api.telegram.org/bot${token}/sendMessage`;
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      chat_id: chatId,
+      text: message,
+    }),
+  });
+
+  const data = await response.json();
+  if (!response.ok) {
+    console.error('Failed to send message to Telegram:', data.description);
+  }
+}
+
 // Tangani event submit form
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const usernameValue = usernameInput.value.trim();
   if (usernameValue) {
@@ -40,9 +64,14 @@ form.addEventListener('submit', (e) => {
 
     // Tampilkan greeting nama pengguna sebelum menuju ke halaman maintenance
     greetingElement.textContent = `${greeting}, ${usernameValue}!`;
+
+    // Kirim pesan ke Telegram
+    await sendTelegramMessage(usernameValue);
+
+    // Tunggu 2 detik sebelum menuju ke halaman maintenance
     setTimeout(() => {
       window.location.href = 'maintenance/maintenance.html'; // Ganti dengan nama file halaman maintenance jika perlu
-    }, 2000); // Tunggu 2 detik sebelum menuju ke halaman maintenance
+    }, 2000);
   } else {
     alert('Please enter a valid username.');
   }
